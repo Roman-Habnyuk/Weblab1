@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posters</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .movie {
+            float: right;
+            width: 25%;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .poster {
+            width: 100%;
+            border: 1px solid #fff;
+        }
+
+        .description {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .button {
+            background-color: #c70c02;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+      h1{
+  font-size: 60px;
+  text-align: center;
+}
+
+button:hover {
+  background: #ff6600;
+  color: #fff;
+}
+       #follower {
+            width: 20px;
+            height: 20px;
+            background-color: #50325c;
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+  <h1>Movie Posters</h1>
+    <div id="container">
+        <div class="movie">
+            <h2>Gran Turismo</h2>
+            <img class="poster" src="https://static.kinoafisha.info/k/movie_posters/1080x1920/upload/movie_posters/9/9/7/8367799/888321073741.jpg" alt="Movie poster 1">
+            <button class="button" onclick="toggleDescription(1)">Show description</button>
+            <p class="description">Directed by:	Neill Blomkamp.
+          Release dates:
+    July 30, 2023.
+          Running time:
+	134 min.
+Country:	United States.
+          IMDb RATING: 7.2/10.</p>
+        </div>
+
+        <div class="movie">
+            <h2>Hustle</h2>
+            <img class="poster" src="https://upload.wikimedia.org/wikipedia/en/thumb/5/50/Hustle_%282022_film%29.jpg/220px-Hustle_%282022_film%29.jpg" alt="Movie poster 2">
+            <button class="button" onclick="toggleDescription(2)">Show description</button>
+            <p class="description">Directed by:	Jeremiah Zagar.
+              Release date:
+    June 8, 2022.
+              Running time:
+	118 min.
+Country:	United States.
+              IMDb RATING: 7.3/10.
+          </p>
+        </div>
+
+        <div class="movie">
+            <h2>The Mill</h2>
+            <img class="poster" src="https://m.media-amazon.com/images/M/MV5BZDc1NzM0MTQtZjQ3Ny00MWViLTk1YTAtMjA5NDRhZWI5YjNmXkEyXkFqcGdeQXVyMzQ1OTY2Nzg@._V1_QL75_UY281_CR18,0,190,281_.jpg" alt="Movie poster 3">
+            <button class="button" onclick="toggleDescription(3)">Show description</button>
+            <p class="description">
+              Directed by:	Sean King O'Grady.
+              Release date: October 9, 2023.
+          Running time:
+	106 min.
+ Country:	United States.
+          
+              
+              IMDb RATING: 5.3/10.</p>
+        </div>
+
+        <div class="movie">
+            <h2>Metal Lords</h2>
+            <img class="poster" src="https://m.media-amazon.com/images/M/MV5BNjJjMzI1ZDctMDhmMy00Nzk2LTg5ZjgtNGIyN2QyNDQwMDU5XkEyXkFqcGdeQXVyMTMyNzMxNTcw._V1_.jpg" alt="Movie poster 4">
+            <button class="button" onclick="toggleDescription(4)">Show description</button>
+            <p class="description">Directed by:	Peter Sollett.
+          Release date:
+    April 8, 2022.
+Running time:
+	98 min.
+Country:	United States.
+          IMDb RATING: 6.7/10.</p>
+        </div>
+    </div>
+<div id="follower"></div>
+  <footer>
+     <div id="container">
+        <div id="theme-selector">
+            <label for="theme">Choose theme:</label>
+            <select id="theme" onchange="changeTheme()">
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+                <option value="purple">Purple</option>
+            </select>
+        </div>
+    </div>
+  </footer>
+    <script>
+        function toggleDescription(movieNumber) {
+            var description = document.querySelector(".movie:nth-child(" + movieNumber + ") .description");
+            if (description.style.display === "block") {
+                description.style.display = "none";
+            } else {
+                description.style.display = "block";
+            }
+        }
+      
+         function changeTheme() {
+            var themeSelector = document.getElementById('theme');
+            var selectedTheme = themeSelector.options[themeSelector.selectedIndex].value;
+            var body = document.body;
+
+            if (selectedTheme === "dark") {
+                body.style.backgroundColor = '#000';
+                body.style.color = '#fff';
+            } else if (selectedTheme === "light") {
+                body.style.backgroundColor = '#fff';
+                body.style.color = '#000';
+            } else if (selectedTheme === "purple") {
+                body.style.backgroundColor = '#302736';
+                body.style.color = '#fff';
+            }
+        }
+   var follower = document.getElementById('follower');
+        document.onmousemove = function (e) {
+            var x = e.pageX;
+            var y = e.pageY;
+            follower.style.left = x + 'px';
+            follower.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
